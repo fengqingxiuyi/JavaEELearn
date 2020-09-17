@@ -1,7 +1,7 @@
 package com.fqxyi.secondnetty.handler.login;
 
-import com.fqxyi.secondnetty.packet.LoginRequestPacket;
-import com.fqxyi.secondnetty.packet.LoginResponsePacket;
+import com.fqxyi.secondnetty.packet.login.LoginRequestPacket;
+import com.fqxyi.secondnetty.packet.login.LoginResponsePacket;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

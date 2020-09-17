@@ -2,6 +2,8 @@ package com.fqxyi.secondnetty;
 
 import com.fqxyi.secondnetty.coder.PacketDecoder;
 import com.fqxyi.secondnetty.coder.PacketEncoder;
+import com.fqxyi.secondnetty.handler.heart.HeartBeatRequestHandler;
+import com.fqxyi.secondnetty.handler.heart.IMIdleStateHandler;
 import com.fqxyi.secondnetty.handler.login.ServerLoginHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -33,6 +35,9 @@ public class NettyServer {
 
                         //ch.pipeline().addLast(new ServerHandler());
 
+                        //添加到最前面
+                        ch.pipeline().addLast(new IMIdleStateHandler());
+
                         /*
                          * 基于长度域拆包器
                          * 以上面客户端和服务端双向通信的代码为例。简单修改一下，在建立连接后，客户端用一个循环向服务器发送消息。然后服务端打印这些消息。
@@ -48,6 +53,9 @@ public class NettyServer {
                         ch.pipeline().addLast(new PacketDecoder());
                         ch.pipeline().addLast(new ServerLoginHandler());
                         ch.pipeline().addLast(new PacketEncoder());
+
+                        //添加到解码和登录请求之后
+                        ch.pipeline().addLast(HeartBeatRequestHandler.INSTANCE);
                     }
                 });
 

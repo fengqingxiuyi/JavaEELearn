@@ -1,7 +1,7 @@
 package com.fqxyi.secondnetty.handler.login;
 
-import com.fqxyi.secondnetty.packet.LoginRequestPacket;
-import com.fqxyi.secondnetty.packet.LoginResponsePacket;
+import com.fqxyi.secondnetty.packet.login.LoginRequestPacket;
+import com.fqxyi.secondnetty.packet.login.LoginResponsePacket;
 import com.fqxyi.secondnetty.packet.Packet;
 import com.fqxyi.secondnetty.packet.PacketCodeC;
 import io.netty.buffer.ByteBuf;

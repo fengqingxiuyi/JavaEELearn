@@ -1,5 +1,6 @@
-package com.fqxyi.secondnetty.packet;
+package com.fqxyi.secondnetty.packet.login;
 
+import com.fqxyi.secondnetty.packet.Packet;
 import lombok.Data;
 
 import static com.fqxyi.secondnetty.packet.Command.LOGIN_RESPONSE;

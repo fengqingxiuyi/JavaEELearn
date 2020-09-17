@@ -2,6 +2,7 @@ package com.fqxyi.secondnetty;
 
 import com.fqxyi.secondnetty.coder.PacketDecoder;
 import com.fqxyi.secondnetty.coder.PacketEncoder;
+import com.fqxyi.secondnetty.handler.heart.HeartBeatTimerHandler;
 import com.fqxyi.secondnetty.handler.login.ClientLoginHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
@@ -39,6 +40,9 @@ public class NettyClient {
                         ch.pipeline().addLast(new PacketDecoder());
                         ch.pipeline().addLast(new ClientLoginHandler());
                         ch.pipeline().addLast(new PacketEncoder());
+
+                        //添加到解码和登录请求之后
+                        ch.pipeline().addLast(new HeartBeatTimerHandler());
                     }
                 });
         // 4.建立连接
