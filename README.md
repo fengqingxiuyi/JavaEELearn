@@ -2,6 +2,20 @@
 
 Java后端学习
 
+# 目录结构
+
+```
+JavaEELearn
+  |--Chat //NIO实现的聊天室
+  |--ChatNetty //Netty实现的聊天室
+  |--FirstJavaWeb //JavaWeb入门
+  |--FirstMongoDB //MongoDB入门
+  |--FirstMyBatis //MyBatis入门
+  |--FirstNetty //Netty入门
+  |--FirstRedis //Redis入门
+  |--README.md //文档总结
+```
+
 # 为Intellij IDEA使用指定的Maven
 
 1、下载：<https://maven.apache.org/download.cgi>，选择`Binary zip archive`；
