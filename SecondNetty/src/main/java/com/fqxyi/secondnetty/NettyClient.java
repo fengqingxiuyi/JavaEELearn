@@ -1,6 +1,8 @@
 package com.fqxyi.secondnetty;
 
-import com.fqxyi.secondnetty.handler.login.ClientHandler;
+import com.fqxyi.secondnetty.coder.PacketDecoder;
+import com.fqxyi.secondnetty.coder.PacketEncoder;
+import com.fqxyi.secondnetty.handler.login.ClientLoginHandler;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -27,7 +29,16 @@ public class NettyClient {
                     @Override
                     public void initChannel(SocketChannel ch) {
                         //ch.pipeline().addLast(new FirstClientHandler());
-                        ch.pipeline().addLast(new ClientHandler());
+
+                        //ch.pipeline().addLast(new ClientHandler());
+
+                        /*
+                         * 解码一定要放在第一个，在这里pipeline按顺序执行，不然接收消息无法正常使用
+                         * 以下三句等同于ch.pipeline().addLast(new ClientHandler());
+                         */
+                        ch.pipeline().addLast(new PacketDecoder());
+                        ch.pipeline().addLast(new ClientLoginHandler());
+                        ch.pipeline().addLast(new PacketEncoder());
                     }
                 });
         // 4.建立连接

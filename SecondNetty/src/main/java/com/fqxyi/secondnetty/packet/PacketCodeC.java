@@ -34,6 +34,10 @@ public class PacketCodeC {
     public ByteBuf encode(ByteBufAllocator bufAllocator, Packet packet) {
         // 1. 创建 ByteBuf 对象
         ByteBuf byteBuf = bufAllocator.ioBuffer();
+        return encode(byteBuf, packet);
+    }
+    //编码
+    public ByteBuf encode(ByteBuf byteBuf, Packet packet) {
         // 2. 序列化 Java 对象
         byte[] bytes = Serializer.DEFAULT.serialize(packet);
         // 3. 实际编码过程，把通信协议几个部分，一一编码
