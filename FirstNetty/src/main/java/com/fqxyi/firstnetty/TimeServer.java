@@ -22,8 +22,8 @@ public class TimeServer {
                     //它的功能对应于JDK NIO类库中的ServerSocketChannel类
                     .channel(NioServerSocketChannel.class)
                     //option：用于配置TCP参数
-                    //初始化服务端可连接队列，服务端处理客户端连接请求是顺序处理的，所以同一时间只能处理一个客户端连接，
-                    //多个客户端来的时候，服务端将不能处理的客户端连接请求放在队列中等待处理
+                    //表示系统用于临时存放已完成三次握手的请求的队列的最大长度，
+                    //如果连接建立频繁，服务器处理创建新连接较慢，可以适当调大这个参数
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     //这个最终会绑定到新连进来的SocketChannel的pipeline上，它的作用类似于Reactor模式中的handler类，
                     //主要用于处理网络I/O事件，例如记录日志、对消息进行编解码等。
