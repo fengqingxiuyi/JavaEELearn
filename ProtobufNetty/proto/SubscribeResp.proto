@@ -1,0 +1,12 @@
+syntax = "proto3";// 指定protobuf版本
+
+// 指定包名
+option java_package = "com.fqxyi.protobufnetty";
+// 指定生成的类名
+option java_outer_classname = "SubscribeRespProto";
+
+message SubscribeResp {
+  int32 subReqID = 1;
+  int32 respCode = 2;
+  string desc = 3;
+}
