@@ -13,7 +13,9 @@ JavaEELearn
   |--FirstMyBatis //MyBatis入门
   |--FirstNetty //Netty入门
   |--FirstRedis //Redis入门
+  |--MqttNetty //Mqtt心跳
   |--Protobuf //Protobuf入门
+  |--ProtobufNetty //Protobuf版本的图书订购程序
   |--SecondNetty //Netty实战
   |--README.md //文档总结
 ```
@@ -47,3 +49,16 @@ JavaEELearn
   <url>http://maven.aliyun.com/nexus/content/groups/public</url>
 </mirror>
 ```
+
+## 添加并导入Maven依赖
+
+1、在`pom.xml`文件的`dependencies`节点下添加依赖，如：
+
+```xml
+<dependency>
+    <groupId>io.netty</groupId>
+    <artifactId>netty-all</artifactId>
+</dependency>
+```
+
+2、打开`Maven`属性窗口，选择所属工程，如`mqttnetty`，然后右击选择`Reimport`即可倒导入依赖。
